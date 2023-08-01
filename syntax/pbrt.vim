@@ -7,7 +7,7 @@ if exists("b:current_syntax")
 endif
 
 " keywords
-syn keyword pbrtKeywords Accelerator ActiveTransform All AreaLightSource Camera ConcatTransform CoordinateSystem CoordSysTransform EndTime Film Identity Integrator LightSource LookAt Material ObjectInstance PixelFilter ReverseOrientation Rotate Sampler Scale Shape StartTime Texture Transform TransformTimes Translate TransformBegin TransformEnd WorldBegin WorldEnd AttributeBegin AttributeEnd ObjectBegin ObjectEnd
+syn keyword pbrtKeywords Accelerator ActiveTransform All AreaLightSource Camera ConcatTransform CoordinateSystem CoordSysTransform EndTime Film Identity Integrator LightSource LookAt Material ObjectInstance PixelFilter ReverseOrientation Rotate Sampler Scale Shape StartTime Texture Transform TransformTimes Translate TransformBegin TransformEnd WorldBegin WorldEnd AttributeBegin AttributeEnd ObjectBegin ObjectEnd MakeNamedMaterial
 syn keyword pbrtDataType integer float point2 vector2 point3 vector3 normal3 spectrum bool string point vector normal
 syn keyword pbrtInclude Include
 syn keyword pbrtBoolean true false
@@ -15,7 +15,7 @@ syntax region pbrtString start=/"/ end=/"/ oneline contains=pbrtDataType
 syntax region pbrtComment start=/#/ end=/$/ oneline
 syntax region pbrtList start='\[' end='\]' contains=pbrtString,pbrtNumber
 syntax match pbrtNumber "\v<\d+>"
-syntax match pbrtNumber "\v<\d+\.\d+>"
+syntax match pbrtNumber "\<\d\%(_\=\d\)*[eE][+-]\=\d\%(_\=\d\)*[jJ]\=\>"
 
 syntax region makeNamed start=/MakeNamed\(Medium \|Material \)/ end=/ / oneline contains=varName
 syntax region varName start=/"/ end=/"/ oneline contained containedin=makeNamed
